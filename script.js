@@ -162,3 +162,29 @@ $('btnExport').addEventListener('click', () => {
 });
 
 render();
+
+/* ---------- 6. ค้นหา + กรอง ---------- */
+function applyFilter() {
+  const q = $('searchBox').value.trim().toLowerCase();
+  const ty = $('filterType').value;
+  const he = $('filterHealth').value;
+  render(trees.filter(t =>
+    (!q || `${t.name} ${t.sci} ${t.zone} ${t.surveyor}`.toLowerCase().includes(q)) &&
+    (!ty || t.type === ty) &&
+    (!he || t.health === he)
+  ));
+}
+['searchBox','filterType','filterHealth'].forEach(id =>
+  $(id).addEventListener('input', applyFilter)
+);
+
+/* ---------- 7. สรุปผล ---------- */
+function updateStats() {
+  $('sTotal').textContent   = trees.length;
+  $('sSpecies').textContent = new Set(trees.map(t => t.name)).size;
+  $('sCo2').textContent     = trees.reduce((s,t) => s + (t.co2||0), 0).toFixed(1);
+  $('sRisk').textContent    = trees.filter(t => t.health === 'bad').length;
+}
+
+/* ---------- 8. เมนูมือถือ ---------- */
+$('burger').addEventListener('click', () => $('nav').classList.toggle('open'));
