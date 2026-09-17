@@ -170,3 +170,7 @@ footer .small{font-size:.8rem;opacity:.6;margin-top:8px}
   font-size:3rem;
   background:#e8f5e9;
 }
+.tree-card{border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.tree-body{padding:12px}
+.tree-body h3{margin:0 0 4px}
+.tree-body p{margin:2px 0;font-size:.9rem}
