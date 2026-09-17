@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ท่าม่วง Urban Forest | สำรวจต้นไม้โรงเรียนท่าม่วงราษฎร์บำรุง</title>
+<meta name="description" content="ระบบฐานข้อมูลต้นไม้ใหญ่ โรงเรียนท่าม่วงราษฎร์บำรุง จ.กาญจนบุรี">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="topbar">
+  <div class="brand">🌳 <b>ท่าม่วง</b>UrbanForest</div>
+  <button class="burger" id="burger" aria-label="เมนู">☰</button>
+  <nav class="nav" id="nav">
+    <a href="#about">เกี่ยวกับโครงการ</a>
+    <a href="#map">แผนที่ต้นไม้</a>
+    <a href="#data">ฐานข้อมูล</a>
+    <a href="#survey">บันทึกการสำรวจ</a>
+    <a href="#summary">สรุปผล</a>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <p class="eyebrow">นวัตกรรมห้องเรียน • โรงเรียนท่าม่วงราษฎร์บำรุง</p>
+  <h1>สำรวจ • บันทึก • ดูแล<br>ต้นไม้ใหญ่ในโรงเรียนของเรา</h1>
+  <p class="lead">
+    ระบบฐานข้อมูลต้นไม้ที่ช่วยเก็บข้อมูลรายต้น คำนวณการกักเก็บคาร์บอน
+    และประเมินความปลอดภัย เพื่อมุ่งสู่การเป็นโรงเรียนคาร์บอนต่ำ
+  </p>
+  <div class="hero-btn">
+    <a href="#survey" class="btn primary">เริ่มบันทึกข้อมูล</a>
+    <a href="#data" class="btn ghost">ดูฐานข้อมูล</a>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section">
+  <h2>เกี่ยวกับโครงการ</h2>
+  <p class="sub">ทำไมโรงเรียนถึงต้องมีฐานข้อมูลต้นไม้</p>
+  <div class="row">
+    <div class="card">
+      <h3>📋 ข้อมูลไม่สูญหาย</h3>
+      <p>เดิมข้อมูลต้นไม้อยู่ในสมุดจดหรือความทรงจำของครู เมื่อเปลี่ยนผู้ดูแลข้อมูลก็หายไป ระบบนี้เก็บไว้อย่างเป็นระบบและสืบค้นได้</p>
+    </div>
+    <div class="card">
+      <h3>🛡️ ความปลอดภัย</h3>
+      <p>บันทึกความเสี่ยง เช่น โพรงในลำต้น ลำต้นเอียง กิ่งแห้งตาย เพื่อวางแผนตัดแต่งก่อนเกิดอันตรายกับนักเรียน</p>
+    </div>
+    <div class="card">
+      <h3>🌱 คาร์บอนต่ำ</h3>
+      <p>คำนวณปริมาณ CO₂ ที่ต้นไม้กักเก็บได้ เป็นข้อมูลอ้างอิงสู่เป้าหมายโรงเรียนคาร์บอนต่ำ</p>
+    </div>
+    <div class="card">
+      <h3>💚 จิตสำนึก</h3>
+      <p>นักเรียนได้ลงพื้นที่สำรวจจริง เรียนรู้การวัด การจดบันทึก และเห็นคุณค่าของต้นไม้รอบตัว</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAP ===== -->
+<section id="map" class="section alt">
+  <h2>แผนที่ต้นไม้</h2>
+  <p class="sub">แบ่งพื้นที่โรงเรียนออกเป็นโซนเพื่อให้สำรวจได้ครบถ้วน</p>
+  <div class="map-wrap">
+    <div class="zone">
+      <b>โซน A</b>
+      <span>หน้าอาคารเรียน 1</span>
+    </div>
+    <div class="zone">
+      <b>โซน B</b>
+      <span>สนามกีฬา / ลานกิจกรรม</span>
+    </div>
+    <div class="zone">
+      <b>โซน C</b>
+      <span>โรงอาหาร / หอประชุม</span>
+    </div>
+    <div class="zone">
+      <b>โซน D</b>
+      <span>สวนหลังโรงเรียน</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SURVEY FORM ===== -->
+<section id="survey" class="section">
+  <h2>บันทึกการสำรวจ</h2>
+  <p class="sub">กรอกข้อมูลต้นไม้ที่สำรวจได้ ระบบจะคำนวณ DBH และ CO₂ ให้อัตโนมัติ</p>
+
+  <form id="treeForm" class="form-box">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="fName">ชื่อต้นไม้ (ภาษาไทย) *</label>
+        <input type="text" id="fName" name="name" placeholder="เช่น ประดู่บ้าน" required>
+      </div>
+      <div class="form-group">
+        <label for="fSci">ชื่อวิทยาศาสตร์</label>
+        <input type="text" id="fSci" name="sci" placeholder="เช่น Pterocarpus indicus">
+      </div>
+      <div class="form-group">
+        <label for="fType">ประเภท *</label>
+        <select id="fType" name="type" required>
+          <option value="ไม้ยืนต้น">ไม้ยืนต้น</option>
+          <option value="ไม้ดอก">ไม้ดอก</option>
+          <option value="ไม้ผล">ไม้ผล</option>
+          <option value="ไม้พุ่ม">ไม้พุ่ม</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fZone">บริเวณ / โซน *</label>
+        <input type="text" id="fZone" name="zone" placeholder="เช่น โซน A หน้าอาคาร 1" required>
+      </div>
+      <div class="form-group">
+        <label for="fHeight">ความสูง (เมตร) *</label>
+        <input type="number" id="fHeight" name="height" step="0.1" min="0" placeholder="เช่น 12.5" required>
+      </div>
+      <div class="form-group">
+        <label for="fGirth">เส้นรอบวงที่ 1.30 ม. (ซม.) *</label>
+        <input type="number" id="fGirth" name="girth" step="0.1" min="0" placeholder="เช่น 95" required>
+      </div>
+      <div class="form-group">
+        <label for="fHealth">สภาพสุขภาพ *</label>
+        <select id="fHealth" name="health" required>
+          <option value="good">ดี</option>
+          <option value="fair">ปานกลาง</option>
+          <option value="bad">ทรุดโทรม</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fSurveyor">ผู้สำรวจ *</label>
+        <input type="text" id="fSurveyor" name="surveyor" placeholder="ชื่อ-สกุล / ชั้น" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fNote">บันทึกเพิ่มเติม (ความเสี่ยง / ข้อสังเกต)</label>
+      <textarea id="fNote" name="note" rows="3" placeholder="เช่น มีโพรงที่โคนต้น กิ่งแห้งฝั่งทิศใต้"></textarea>
+    </div>
+
+    <!-- ===== อัปโหลดรูป ===== -->
+    <div class="form-group">
+      <label for="treePhoto">📷 รูปภาพต้นไม้</label>
+      <input type="file" id="treePhoto" name="photo" accept="image/*" capture="environment">
+      <img id="photoPreview" alt="ตัวอย่างรูป"
+           style="display:none;max-width:200px;border-radius:8px;margin-top:8px">
+      <button type="button" id="btnClearPhoto"
+              style="display:none;margin-top:6px">ลบรูป</button>
+    </div>
+
+    <!-- ===== กล่องคำนวณ ===== -->
+    <div class="calc">
+      <div class="calc-item"><span>DBH</span><b id="cDbh">– ซม.</b></div>
+      <div class="calc-item"><span>มวลชีวภาพ</span><b id="cBio">– กก.</b></div>
+      <div class="calc-item"><span>กักเก็บ CO₂</span><b id="cCo2">– กก.</b></div>
+    </div>
+
+    <button type="submit" class="btn primary wide">💾 บันทึกข้อมูลต้นไม้</button>
+  </form>
+</section>
+
+<!-- ===== DATABASE ===== -->
+<section id="data" class="section alt">
+  <h2>ฐานข้อมูลต้นไม้</h2>
+  <p class="sub">ค้นหาและกรองข้อมูลต้นไม้ที่บันทึกไว้</p>
+
+  <div class="filter-bar">
+    <input type="search" id="searchBox" placeholder="🔍 ค้นหาชื่อต้นไม้ / โซน / ผู้สำรวจ">
+    <select id="filterType">
+      <option value="">ทุกประเภท</option>
+      <option value="ไม้ยืนต้น">ไม้ยืนต้น</option>
+      <option value="ไม้ดอก">ไม้ดอก</option>
+      <option value="ไม้ผล">ไม้ผล</option>
+      <option value="ไม้พุ่ม">ไม้พุ่ม</option>
+    </select>
+    <select id="filterHealth">
+      <option value="">ทุกสภาพ</option>
+      <option value="good">ดี</option>
+      <option value="fair">ปานกลาง</option>
+      <option value="bad">ทรุดโทรม</option>
+    </select>
+    <button id="btnExport" class="btn ghost">⬇️ ส่งออก CSV</button>
+  </div>
+
+  <div id="treeGrid" class="tree-grid"></div>
+</section>
+
+<!-- ===== SUMMARY ===== -->
+<section id="summary" class="section">
+  <h2>สรุปผล</h2>
+  <p class="sub">ภาพรวมข้อมูลต้นไม้ทั้งหมดในโรงเรียน</p>
+  <div class="stat-grid dash">
+    <div class="stat"><b id="sTotal">0</b><span>จำนวนต้นไม้ (ต้น)</span></div>
+    <div class="stat"><b id="sSpecies">0</b><span>ชนิดพันธุ์</span></div>
+    <div class="stat"><b id="sCo2">0</b><span>กักเก็บ CO₂ รวม (กก.)</span></div>
+    <div class="stat"><b id="sRisk">0</b><span>ต้นที่ต้องดูแลเร่งด่วน</span></div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <p>🌳 ท่าม่วง Urban Forest — โครงงานนวัตกรรม โรงเรียนท่าม่วงราษฎร์บำรุง จ.กาญจนบุรี</p>
+  <p class="small">ข้อมูลถูกเก็บไว้ในเบราว์เซอร์ของคุณ (localStorage) แนะนำให้ส่งออก CSV สำรองเป็นประจำ</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
